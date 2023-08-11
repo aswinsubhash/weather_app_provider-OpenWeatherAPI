@@ -1,3 +1,5 @@
+## About the provider structure
+
 The state file will be a part file of the provider file.
 
 When creating weather related state and ChangeNotifier,create a weather folder underthe providers folder and create weather_state.dart and weather_provider.dart files under the weather folder.
