@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:open_weather_provider/pages/search_page.dart';
 import 'package:open_weather_provider/pages/settings_page.dart';
@@ -67,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                   builder: (_) => const SearchPage(),
                 ),
               );
-              log('city: $_city');
+
               if (_city != null) {
                 if (!mounted) return;
                 context.read<WeatherProvider>().fetchWeather(_city!);

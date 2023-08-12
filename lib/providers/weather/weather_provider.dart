@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-
 import 'package:open_weather_provider/models/custom_error.dart';
 import 'package:open_weather_provider/models/weather.dart';
 import 'package:open_weather_provider/repositories/weather_repository.dart';
@@ -29,11 +26,11 @@ class WeatherProvider with ChangeNotifier {
         status: WeatherStatus.loaded,
         weather: weather,
       );
-      log('state: $_state');
+    
       notifyListeners();
     } on CustomError catch (e) {
       _state = _state.copyWith(status: WeatherStatus.error, error: e);
-      log('state: $_state');
+     
       notifyListeners();
     }
   }

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:open_weather_provider/exceptions/weather_exception.dart';
 import 'package:open_weather_provider/models/custom_error.dart';
 import 'package:open_weather_provider/models/direct_geocoding.dart';
@@ -16,8 +14,7 @@ class WeatherRepository {
     try {
       final DirectGeocoding directGeocoding =
           await weatherApiServices.getDirectGeocoding(city);
-      log(directGeocoding.toString());
-
+    
       final Weather tempWeather =
           await weatherApiServices.getWeather(directGeocoding);
 
