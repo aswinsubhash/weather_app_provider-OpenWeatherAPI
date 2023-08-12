@@ -15,6 +15,6 @@ class ThemeProvider with ChangeNotifier {
     }else{
       _state = _state.copyWith(appTheme: AppTheme.dark);
     }
-    notifyListeners();
+    notifyListeners(); 
   }
 }
