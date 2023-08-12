@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:open_weather_provider/pages/search_page.dart';
+import 'package:open_weather_provider/pages/settings_page.dart';
 import 'package:open_weather_provider/providers/weather/weather_provider.dart';
 import 'package:open_weather_provider/widgets/error_dialog.dart';
 import 'package:open_weather_provider/widgets/show_weather.dart';
@@ -38,8 +39,6 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-
-
   // @override
   // void initState() {
   //   super.initState();
@@ -74,6 +73,16 @@ class _HomePageState extends State<HomePage> {
                 context.read<WeatherProvider>().fetchWeather(_city!);
               }
             },
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (_) {
+                  return const SettingsPage();
+                },
+              ));
+            },
+            icon: const Icon(Icons.settings),
           )
         ],
       ),

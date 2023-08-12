@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:open_weather_provider/providers/temp_settings/temp_settings_provider.dart';
 import 'package:open_weather_provider/providers/weather/weather_provider.dart';
 import 'package:open_weather_provider/widgets/format_text.dart';
 import 'package:open_weather_provider/widgets/show_icon.dart';
 import 'package:provider/provider.dart';
 
 Widget showWeather(BuildContext context) {
+  String showTemperature(double temperature) {
+    final tempUnit = context.watch<TempSettingsProvider>().state.tempUnit;
+
+    if (tempUnit == TempUnit.fahrenheit) {
+      return '${((temperature * 9 / 5) + 32).toStringAsFixed(2)}℉';
+    }
+
+    return '${temperature.toStringAsFixed(2)}℃';
+  }
+
   final state = context.watch<WeatherProvider>().state;
 
   if (state.status == WeatherStatus.initial) {
@@ -64,7 +75,7 @@ Widget showWeather(BuildContext context) {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '${state.weather.temp.toStringAsFixed(2)}℃',
+            showTemperature(state.weather.temp),
             style: const TextStyle(
               fontSize: 30.0,
               fontWeight: FontWeight.bold,
@@ -74,12 +85,12 @@ Widget showWeather(BuildContext context) {
           Column(
             children: [
               Text(
-                '${state.weather.tempMax.toStringAsFixed(2)}℃',
+                showTemperature(state.weather.tempMax),
                 style: const TextStyle(fontSize: 16.0),
               ),
               const SizedBox(height: 10.0),
               Text(
-                '${state.weather.tempMin.toStringAsFixed(2)}℃',
+                showTemperature(state.weather.tempMin),
                 style: const TextStyle(fontSize: 16.0),
               ),
             ],
