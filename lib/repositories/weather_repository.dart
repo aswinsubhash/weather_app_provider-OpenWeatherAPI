@@ -26,8 +26,6 @@ class WeatherRepository {
         country: directGeocoding.country,
       );
 
-      log(weather.toString());
-
       return weather;
     } on WeatherException catch (e) {
       throw CustomError(errMsg: e.message);

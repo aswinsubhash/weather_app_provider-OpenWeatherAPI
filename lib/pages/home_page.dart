@@ -15,9 +15,9 @@ class _HomePageState extends State<HomePage> {
   // }
 
   // _fetchWeather() {
-  //   WeatherRepository(
-  //           weatherApiServices: WeatherApiServices(httpClient: http.Client()))
-  //       .fetchWeather('kollam');
+  //  WidgetsBinding.instance.addPostFrameCallback((_) { 
+  //    context.read<WeatherProvider>().fetchWeather('London');
+  //  });
   // }
 
   @override
