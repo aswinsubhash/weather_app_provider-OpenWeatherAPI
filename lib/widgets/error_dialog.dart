@@ -39,4 +39,23 @@ void errorDialog(BuildContext context, String errorMessage) {
       },
     );
   }
+  // if(!Platform.isIOS){
+  //  showDialog(
+  //     context: context,
+  //     barrierDismissible: false,
+  //     builder: (context) {
+  //       return AlertDialog.adaptive(
+  //         title: const Text('Error'),
+  //         content: Text(errorMessage),
+  //         actions: [
+  //           TextButton(
+  //             onPressed: () => Navigator.pop(context),
+  //             child: const Text('OK'),
+  //           )
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
+
 }
